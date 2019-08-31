@@ -9,6 +9,8 @@
 
 
   <!-- 👍 YOUR HTML HERE 👍 -->
+  <!-- final -->
+  <h1>Hero</h1>
 
   <img class="herostuff" id="inn" src = "https://www.yourdictionary.com/images/definitions/lg/6284.inn.jpg" />
 
@@ -16,7 +18,27 @@
 
   <img class="herostuff" id="bag" src = "https://i.mmo.cm/is/image/mmoimg/bigview/medieval-pouch-suede-light-brown--mw-302146-1.jpg" />
 
+  <section>
 
+    <label for="showname" id="name">Name of hero: </label><output id="showName"></output>
+    <label for="showhealth" id="health">Health: </label><output id="showHealth"></output>
+    <label for="showweaponType" id="weaponType">Weapon Type: </label><output id="showWeaponType"></output>
+    <label for="weapoDamage" id="weaponDamage">Weapon Damage: </label><output id="showWeaponDamage"></output>
+
+    <form>
+
+      <button id="changeName">Change the hero's name</button>
+
+
+    </form>
+
+    <h1>Enemy</h1>
+
+    <img id="enemy" src="https://media.wired.com/photos/59331aa6aef9a462de985569/master/pass/copyright-troll.jpg"/>
+
+    <label for="enemyHealth" id="enemyHealth">Health: </label><output id="showEnemyHealth"></output>
+    <button id="fightEnemy">Click to start fighting!</button>
+  </section>
 
   <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
   <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>

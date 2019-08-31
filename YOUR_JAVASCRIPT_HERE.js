@@ -1,8 +1,9 @@
 // Write your JS here
+//Final changes
 
 const hero = {
 
-    name: "",
+    name: "James",
     heroic: true,
     inventory: [],
     health: 10,
@@ -11,6 +12,15 @@ const hero = {
             type: "stone",
             damage: 2
     }
+
+};
+
+//enemy's credentials
+
+const enemy = {
+
+    health: 10,
+    attack: 3
 
 };
 
@@ -24,6 +34,7 @@ function rest(userHero){
 
         userHero.health = 10;
         hero.health = 10;
+        displayStats();
 
         return userHero;
 
@@ -43,6 +54,8 @@ function pickUpItem(userHero, addWeapon){
 
     userHero.inventory.push(addWeapon);
 
+    //delete 
+
 }
 
 function equipWeapon(userHero){
@@ -54,6 +67,7 @@ function equipWeapon(userHero){
    }else{
 
     userHero.weapon = userHero.inventory[0];
+    displayStats();
 
    }
 
@@ -73,12 +87,13 @@ healthRest.addEventListener("click", (event)=> {
 //add dagger to inventory
 
 const addDagger = document.querySelector("#dagger");
-console.log("addDagger", addDagger);
 
 addDagger.addEventListener("click", (event)=> {
     
     event.preventDefault();
     pickUpItem(hero, addWeapon);
+    //remove dagger from image
+    addDagger.parentNode.removeChild(addDagger);
 
 }
     );
@@ -93,3 +108,95 @@ equipWithWeapon.addEventListener("click", (event)=>{
     event.preventDefault();
     equipWeapon(hero);
 });
+
+
+function displayStats(){
+
+    //hero's stats
+    const dispName = document.querySelector("#showName");
+    dispName.innerText = hero.name;
+
+    const showHealth = document.querySelector("#showHealth");
+    showHealth.innerText = hero.health;
+
+    const showWeaponType = document.querySelector("#showWeaponType");
+    showWeaponType.innerText = hero.weapon.type;
+
+    const showWeaponDamage = document.querySelector("#showWeaponDamage");
+    showWeaponDamage.innerText = hero.weapon.damage;
+
+    //enemy's stats
+    const dispEnemyHealth = document.querySelector("#showEnemyHealth");
+    dispEnemyHealth.innerText = enemy.health;
+
+}
+
+displayStats();
+
+//change the hero's name
+
+function changeName(){
+
+    const newName = prompt("What would you like the new name to be?");
+    
+    if(newName !=""){
+
+        hero.name=newName;
+        const dispName = document.querySelector("#showName");
+        dispName.innerText = hero.name;
+
+    }
+
+}
+
+
+
+const nameChange = document.querySelector("#changeName");
+nameChange.addEventListener('click', (event)=>{
+    
+    event.preventDefault();
+    changeName();
+    
+    });
+
+
+
+
+
+//fight button
+function fight(userHero, theEnemy){
+
+    userHero.health -= theEnemy.attack;
+
+    theEnemy.health -= userHero.weapon.damage;
+
+    if(userHero.health<1){
+
+        alert("You are dead, the enemy remains undefeated!");
+
+    }else if(theEnemy.health<1){
+
+        alert("Congratulations! You have beaten the enemy and reign supreme!");
+
+    }
+
+    displayStats();
+
+}
+
+const updateFight = document.querySelector("#fightEnemy");
+
+updateFight.addEventListener("click", (event)=>{
+
+    event.preventDefault();
+    fight(hero, enemy);
+})
+
+//remove enemy when clicked on
+
+const removeEnemy = document.querySelector("#enemy");
+removeEnemy.addEventListener("click", ()=>removeEnemy.parentNode.removeChild(removeEnemy));
+
+
+
+
