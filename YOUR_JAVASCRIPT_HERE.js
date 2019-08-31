@@ -1,5 +1,6 @@
 // Write your JS here
 //Final changes
+//Final Final changes ability to select random enemy pic
 
 const hero = {
 
@@ -23,6 +24,25 @@ const enemy = {
     attack: 3
 
 };
+
+//enemy image
+
+const enemiesImage =[
+
+    "https://media.wired.com/photos/59331aa6aef9a462de985569/master/pass/copyright-troll.jpg",
+
+    "https://shop.bbc.com/media/catalog/product/cache/2/image/1200x1200/9df78eab33525d08d6e5fb8d27136e95/2/0/20386-silver-dalek-ornament_large.jpg",
+
+    "http://images.buystarwarscostumes.com/products/10008/1-1/authentic-darth-vader-costume.jpg",
+
+    "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-the-simpsons-harry-shearer-ned-flanders.jpg",
+
+    "https://cdn.shopify.com/s/files/1/2529/5140/products/frozen-elsa-portrait-collection-diamond-painting-kit-ytg-official-store-classic-20x30cm-8x12-in-square-5_1024x1024.jpg?v=1557777161",
+
+    "https://i.cbc.ca/1.4048391.1490905218!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/the-teletubbies.jpg"
+
+];
+
 
 function rest(userHero){
 
@@ -191,6 +211,19 @@ updateFight.addEventListener("click", (event)=>{
     event.preventDefault();
     fight(hero, enemy);
 })
+
+
+//change pic of enemy
+function newEnemy(){
+
+    const dispEnemy = document.querySelector("#enemy");
+    dispEnemy.src = enemiesImage[Math.floor(Math.random()*enemiesImage.length)];
+    
+}
+    
+    const changeEnemyPic = document.querySelector("#changeEnemy");
+    changeEnemyPic.addEventListener("click", newEnemy);
+    
 
 //remove enemy when clicked on
 
