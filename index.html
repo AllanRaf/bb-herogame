@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link href="lib/mocha.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+
+  <!-- 👍 YOUR HTML HERE 👍 -->
+
+  <img class="herostuff" id="inn" src = "https://www.yourdictionary.com/images/definitions/lg/6284.inn.jpg" />
+
+  <img class="herostuff" id="dagger" src ="https://www.martoswordstoledo.com/1111-large_default/indiana-jones-nazca-dagger.jpg" />
+
+  <img class="herostuff" id="bag" src = "https://i.mmo.cm/is/image/mmoimg/bigview/medieval-pouch-suede-light-brown--mw-302146-1.jpg" />
+
+
+
+  <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
+  <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
+
+  <div id="mocha">
+  <!-- MOCHA TEST FEEDBACK WILL BE RENDERED HERE -->
+  </div>
+
+  <script src="lib/chai.js"></script>
+  <script src="lib/mocha.js"></script>
+  <script src="lib/sinon.js"></script>
+  <script>mocha.setup('bdd')</script>
+  <script src="YOUR_JAVASCRIPT_HERE.js"></script>
+  <script src="lib/game_logic.test.js"></script>
+
+</body>
+</html>
